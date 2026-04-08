@@ -1,4 +1,4 @@
-##📚 Mini Library Management System 
+**📚 Mini Library Management System**
 
 A simple **Library Management System** built with **PHP, MySQL, and Tailwind CSS**.  
 ---
