@@ -9,7 +9,6 @@ A simple **Library Management System** built with **PHP, MySQL, and Tailwind CSS
   - Display student list
 - **Book Management**
   - Add new books
-  - Display book list with availability status (Available / Borrowed)
   - Search/filter books
 - **Borrowing System**
   - Select student and book to borrow
