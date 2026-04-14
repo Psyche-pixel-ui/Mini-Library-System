@@ -1,0 +1,585 @@
+/* ============================================================
+   style.css — Mini Library System Global Styles
+   Location: MINI-LIBRARY-SYSTEM/style.css
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── CSS Variables ── */
+:root {
+  --maroon:       #8b0000;
+  --maroon-deep:  #6b0000;
+  --white:        #ffffff;
+  --black:        #1a1a1a;
+  --gold:         #c9973a;
+  --gold-light:   #e8c378;
+  --ink:          #1a1109;
+  --ink-mid:      #4a3728;
+  --ink-soft:     #7a6555;
+  --border:       #e4d9cf;
+  --focus-ring:   rgba(139, 0, 0, 0.18);
+  --bg-page:      #f0f2f5;
+}
+
+/* ── Base ── */
+html, body {
+  min-height: 100vh;
+  font-family: 'DM Sans', Arial, sans-serif;
+  color: var(--ink);
+}
+
+h1, h2, h3 { color: var(--black); }
+
+/* ============================================================
+   AUTH PAGE  (Admin/auth.php)
+   ============================================================ */
+
+body.auth-body {
+  background: var(--maroon);
+}
+
+/* Full-viewport centering wrapper */
+.auth-screen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+/* White card */
+.auth-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2.25rem 2rem;
+  width: 100%;
+  max-width: 420px;
+  min-width: 300px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Card header */
+.auth-card-header {
+  text-align: center;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.auth-card-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+
+.auth-card-header p {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* ── Auth Fields ── */
+.auth-field {
+  margin-bottom: 1rem;
+}
+
+.auth-field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-mid);
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.auth-field input,
+.auth-field select {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: 'DM Sans', Arial, sans-serif;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  background: #fdfaf7;
+  color: var(--ink);
+  outline: none;
+  transition: border 0.15s, box-shadow 0.15s;
+}
+
+.auth-field input:focus,
+.auth-field select:focus {
+  border-color: var(--maroon);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+  background: var(--white);
+}
+
+.auth-field input::placeholder { color: #c0b0a5; }
+
+.auth-field input.input-error,
+.auth-field select.input-error {
+  border-color: #c0392b;
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.15);
+}
+
+.auth-field select { cursor: pointer; }
+
+/* ── Password wrapper ── */
+.pw-wrap { position: relative; }
+.pw-wrap input { padding-right: 44px; }
+
+.eye-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ede6de;
+  border: none;
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--ink-soft);
+  transition: background 0.15s, color 0.15s;
+}
+
+.eye-btn:hover { background: var(--maroon); color: var(--white); }
+
+.eye-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── Remember me ── */
+.remember-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0.1rem 0 1rem;
+}
+
+.remember-row input[type="checkbox"] {
+  accent-color: var(--maroon);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.remember-row label {
+  font-size: 13px;
+  color: var(--ink-mid);
+  cursor: pointer;
+}
+
+/* ── Auth Buttons ── */
+.auth-btn-primary {
+  display: block;
+  width: 100%;
+  padding: 11px;
+  font-size: 14.5px;
+  font-weight: 600;
+  font-family: 'DM Sans', Arial, sans-serif;
+  background: var(--maroon);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  box-shadow: 0 3px 10px rgba(139, 0, 0, 0.3);
+  margin-bottom: 0.65rem;
+}
+
+.auth-btn-primary:hover  { background: var(--maroon-deep); }
+.auth-btn-primary:active { transform: scale(0.99); }
+
+.auth-btn-secondary {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'DM Sans', Arial, sans-serif;
+  background: transparent;
+  color: var(--maroon);
+  border: 1.5px solid var(--maroon);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.auth-btn-secondary:hover { background: #fdf0f0; }
+
+/* ── Forgot link ── */
+.auth-forgot {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 13px;
+  color: var(--maroon);
+  text-decoration: none;
+}
+
+.auth-forgot:hover { text-decoration: underline; }
+
+/* ── Inline error ── */
+.auth-err {
+  font-size: 11.5px;
+  color: #c0392b;
+  margin-top: 5px;
+  display: none;
+}
+
+/* ── Toast ── */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--ink);
+  color: var(--white);
+  font-size: 13.5px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.25s, transform 0.25s;
+  pointer-events: none;
+  z-index: 999;
+  max-width: 280px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.toast.show    { opacity: 1; transform: translateY(0); }
+.toast.success { background: #1a6e3c; }
+.toast.error   { background: #9b1b1b; }
+
+/* ── Auth responsive ── */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 1.75rem 1.25rem;
+    border-radius: 12px;
+  }
+}
+
+
+/* ============================================================
+   DASHBOARD PAGE  (Library/dashboard.php)
+   ============================================================ */
+
+body.dashboard-body {
+  background: var(--bg-page);
+  min-height: 100vh;
+}
+
+/* ── Header ── */
+.dash-header {
+  background: var(--maroon);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.dash-header-left h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+
+.dash-header-left p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.dash-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── Stat pills in header ── */
+.stat-pill {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 13px;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stat-pill .count {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.stat-pill .count.blue { color: #7ec8f7; }
+.stat-pill .count.red  { color: #ffaaaa; }
+
+/* ── Logout button ── */
+.logout-btn {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'DM Sans', Arial, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.logout-btn:hover { background: rgba(255, 255, 255, 0.25); }
+
+/* ── Main layout — 3 equal columns ── */
+.dash-main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── Dashboard cards ── */
+.dash-card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dash-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: var(--maroon);
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #f3ede6;
+}
+
+/* ── Add forms inside cards ── */
+.add-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.add-form input,
+.add-form select {
+  flex: 1;
+  min-width: 120px;
+  padding: 8px 12px;
+  font-size: 13.5px;
+  font-family: 'DM Sans', Arial, sans-serif;
+  border: 1.5px solid var(--border);
+  border-radius: 7px;
+  background: #fdfaf7;
+  color: var(--ink);
+  outline: none;
+  transition: border 0.15s, box-shadow 0.15s;
+}
+
+.add-form input:focus,
+.add-form select:focus {
+  border-color: var(--maroon);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+  background: var(--white);
+}
+
+.add-form input::placeholder { color: #c0b0a5; }
+.add-form select { cursor: pointer; }
+
+/* ── Action buttons in forms ── */
+.btn-add {
+  padding: 8px 18px;
+  font-size: 13.5px;
+  font-weight: 600;
+  font-family: 'DM Sans', Arial, sans-serif;
+  color: var(--white);
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  white-space: nowrap;
+  background: var(--maroon);
+}
+
+.btn-add:hover  { opacity: 0.88; }
+.btn-add:active { transform: scale(0.98); }
+
+.btn-add.green  { background: #1a6e3c; }
+.btn-add.purple { background: #4a2080; }
+
+/* ── List items ── */
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f3ede6;
+}
+
+.list-item:last-child { border-bottom: none; }
+
+.list-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.list-item-info p:first-child {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--black);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-item-info p:last-child {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-item-meta {
+  font-size: 12px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+/* ── Status badges ── */
+.status-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.status-available {
+  background: #e6f4ee;
+  color: #1a6e3c;
+  border: 1px solid #a8d5bc;
+}
+
+.status-borrowed {
+  background: #fdecea;
+  color: #9b1b1b;
+  border: 1px solid #f5b7b1;
+}
+
+/* ── Delete / Return buttons ── */
+.btn-delete {
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'DM Sans', Arial, sans-serif;
+  background: #fdecea;
+  color: #9b1b1b;
+  border: 1px solid #f5b7b1;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.btn-delete:hover { background: #f5b7b1; }
+
+.btn-return {
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'DM Sans', Arial, sans-serif;
+  background: #e8f4fd;
+  color: #1565a8;
+  border: 1px solid #a8cff5;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.btn-return:hover { background: #a8cff5; }
+
+/* ── Empty state ── */
+.empty-state {
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-soft);
+  padding: 1.5rem 0;
+  font-style: italic;
+}
+
+/* ── Dashboard responsive ── */
+@media (max-width: 1100px) {
+  .dash-main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .dash-main {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .dash-header {
+    padding: 1rem;
+  }
+
+  .dash-header-left h1 {
+    font-size: 17px;
+  }
+
+  .add-form {
+    flex-direction: column;
+  }
+
+  .add-form input,
+  .add-form select,
+  .btn-add {
+    width: 100%;
+    flex: unset;
+  }
+}
